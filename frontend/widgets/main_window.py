@@ -14,7 +14,7 @@ class MainWindow(QMainWindow):
 
         #test
 
-        self.manager.add_widget("clock", widget_clock.clock(self,init_pos,self.manager))
+        self.manager.add_widget("clock", widget_clock.clock(self, self.manager))
         self.manager.record_widget("clock", self.manager.get_widget("clock"))
 
         #test finish
