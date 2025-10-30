@@ -4,7 +4,7 @@ from PyQt6.QtWidgets import QApplication, QMainWindow
 from . import widget_manager
 from .clock import widget_clock
 
-init_pos = (400,400)
+init_pos = (600,400)
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -14,7 +14,8 @@ class MainWindow(QMainWindow):
 
         #test
 
-        self.manager.add_widget("clock", widget_clock.clock(self,init_pos))
+        self.manager.add_widget("clock", widget_clock.clock(self,init_pos,self.manager))
+        self.manager.record_widget("clock", self.manager.get_widget("clock"))
 
         #test finish
 

@@ -4,18 +4,21 @@ from PyQt6 import QtWidgets, QtCore
 
 
 class clock(widget_manager.Basewidget):
-    def __init__(self, parent: QtWidgets.QMainWindow, pos):
 
-        super().__init__(parent)
-        self.pos = pos
-        self.setFixedSize(900, 900)
+    def __init__(self, parent: QtWidgets.QMainWindow, pos, manager):
+
+        super().__init__(parent,manager, True, "clock")
+        self.size_of_screen = (300, 300)
+        self.setFixedSize(*self.size_of_screen)
         self.create_widget()
+        self.setStyleSheet("""
+            background-color: rgba(50, 50, 50, 180);
+            border-radius: 10px;
+        """)
 
         #self.setWindowFlag(QtCore.Qt.WindowType.FramelessWindowHint)
-        self.setWindowFlag(QtCore.Qt.WindowType.WindowStaysOnTopHint)
+        #self.setWindowFlag(QtCore.Qt.WindowType.WindowStaysOnTopHint)
         #self.setAttribute(QtCore.Qt.WidgetAttribute.WA_TranslucentBackground)
-
-        self.move(*pos)
         
     def create_widget(self):
        layout = QtWidgets.QVBoxLayout()
