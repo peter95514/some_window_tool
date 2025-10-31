@@ -9,7 +9,7 @@ class clock(widget_manager.Basewidget):
 
     def __init__(self, parent: QtWidgets.QMainWindow, manager):
 
-        super().__init__(parent,manager, True, "clock")
+        super().__init__(parent, manager, True, "clock")
         self.size_of_screen = (300, 300)
         self.setFixedSize(*self.size_of_screen)
         self.create_widget()
@@ -22,6 +22,7 @@ class clock(widget_manager.Basewidget):
 
         self.label = QtWidgets.QLabel(self)
         self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
         self.label.setStyleSheet("""
             background-color: transparent;
             color: white;

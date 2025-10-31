@@ -8,7 +8,7 @@ root_path = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 
 class Basewidget(QWidget):
     def __init__(self, parent: QMainWindow, manager : "WidgetManager", movable = True, name = None):
-        super().__init__()
+        super().__init__(parent)
         self.setParent(parent)
         self.widget = None
         self.movable = movable
