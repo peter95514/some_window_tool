@@ -1,6 +1,7 @@
 from abc import abstractmethod
-from PyQt6.QtWidgets import QMainWindow, QWidget
+from PyQt6.QtWidgets import QMainWindow, QWidget, QApplication
 from PyQt6.QtCore import QPoint, Qt
+
 import os
 import json
 
@@ -53,6 +54,16 @@ class WidgetManager:
         self.main_window = main_window
         self.json_path = os.path.join(root_path, "data/config/widget_state.json")
         self.state = self.load_state()
+
+        self.nowscreen_size = []
+        screens = QApplication.screens()
+        for i, s in enumerate(screens):
+            self.nowscreen_size.append((s.size().width(), s.size().height()))
+
+        self.whichs_creen = 0
+
+    def get_screen_size(self):
+        return self.nowscreen_size[self.whichs_creen]
 
     def load_state(self):
         if not os.path.exists(self.json_path):

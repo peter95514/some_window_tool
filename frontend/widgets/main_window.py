@@ -1,6 +1,6 @@
 import sys
 from PyQt6 import QtCore
-from PyQt6.QtWidgets import QApplication, QMainWindow
+from PyQt6.QtWidgets import QApplication, QMainWindow, QVBoxLayout
 from . import widget_manager
 from .clock import widget_clock
 from .sidebar import sidebar
@@ -26,6 +26,7 @@ class MainWindow(QMainWindow):
         #self.setWindowFlag(QtCore.Qt.WindowType.WindowTransparentForInput)
 
         self.showFullScreen()
+
 
 
 if __name__ == "__main__":

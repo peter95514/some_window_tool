@@ -1,6 +1,6 @@
 from PyQt6.QtGui import QPainter, QColor
 from frontend.widgets import widget_manager 
-from PyQt6 import QtWidgets
+from PyQt6 import QtWidgets, QtCore
 from PyQt6.QtCore import QTimer, Qt, QTime, QDate
 
 weekday = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
@@ -13,10 +13,7 @@ class clock(widget_manager.Basewidget):
         self.size_of_screen = (300, 300)
         self.setFixedSize(*self.size_of_screen)
         self.create_widget()
-        self.setStyleSheet("""
-            background-color: rgba(50, 50, 50, 180);
-            border-radius: 10px;
-        """)
+        self.setAttribute(QtCore.Qt.WidgetAttribute.WA_TranslucentBackground)
 
     def create_widget(self):
 
