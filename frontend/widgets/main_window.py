@@ -4,6 +4,7 @@ from PyQt6.QtWidgets import QApplication, QMainWindow, QVBoxLayout
 from . import widget_manager
 from .clock import widget_clock
 from .sidebar import sidebar
+from .todo import todo
 
 init_pos = (600,400)
 
@@ -13,6 +14,9 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         self.manager = widget_manager.WidgetManager(self)
+
+        self.manager.add_widget("todo_widget", todo.todo_widget(self, self.manager))
+        self.manager.record_widget("todo_widget", self.manager.get_widget("todo_widget"))
 
         self.manager.add_widget("clock", widget_clock.clock(self, self.manager))
         self.manager.record_widget("clock", self.manager.get_widget("clock"))
